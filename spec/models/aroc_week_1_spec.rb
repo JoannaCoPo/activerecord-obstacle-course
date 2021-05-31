@@ -83,8 +83,7 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
     # items = Item.all.select { |item| ids_to_find.include?(item.id) }
     # ------------------------------------------------------------
     # ------------------ Using ActiveRecord ----------------------
-    ids_as_strings = ids_to_find.join(',')
-    items = Item.where("id in (#{ids_as_strings})")
+    items = Item.order(:id).find(ids_to_find)
     # ------------------------------------------------------------
 
     # Expectation
@@ -99,8 +98,7 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-    ids_as_strings = ids_to_find.join(',')
-    orders = Order.where("id in (#{ids_as_strings})")
+    orders = Order.order(:id).find(ids_to_find)
     # ------------------------------------------------------------
 
     # Expectation
